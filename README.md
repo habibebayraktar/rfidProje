@@ -3,4 +3,4 @@ Sosyalleşmenin olduğu her alanda ilgili alanın metrekare bilgisine göre; bul
 Kontrollü sosyalleşmeyi sağlamak projedeki amaçtır.
 Arduino tarafında RFID teknolojisi kullanılarak sistemde kayıtlı karta sahip olan ve HES kodu yeşil olan kişilerin geçişi sağlanmaktadır. c# ve arduino arasında veri iletimi sağlanmıştır.
 Giriş ve çıkışlarda kontenjan bilgisi değişir. Kişilerin bilgileri veritabanında tutulmaktadır.
-Şuan projenin %80 ini bitmiş durumdadır. Tamamlandığında güncelleştirmeyi sağlayacağım.
+
