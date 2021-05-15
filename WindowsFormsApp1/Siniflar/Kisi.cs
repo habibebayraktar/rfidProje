@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.Siniflar
 
         [StringLength(18)]
         [Required]
-        [Index(IsUnique = true)]
+        [Index(IsUnique = true)] //tekillik
         public string kartNumara { get; set; }
 
         [StringLength(20)]

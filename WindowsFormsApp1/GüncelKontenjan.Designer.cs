@@ -36,6 +36,7 @@ namespace WindowsFormsApp1
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bilgi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -114,5 +115,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label bilgi;
         private System.Windows.Forms.Label label2;
+        private System.IO.Ports.SerialPort serialPort1;
     }
 }

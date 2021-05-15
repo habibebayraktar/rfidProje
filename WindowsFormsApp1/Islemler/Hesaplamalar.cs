@@ -44,6 +44,21 @@ namespace WindowsFormsApp1.Islemler
             
             return false;
         }
+        public static int kalanKontenjan { get; set; }
+        public static bool cikiskontenjanDonus(string gelenText, int kontenjan)
+        {
+
+            if (gelenText == "Cikis Yapildi\r\n")
+            {
+                kontenjan++;
+                sayac--;
+                kalanKontenjan = kontenjan;
+                return true;
+            }
+            return false;
+        }
+
+
         public int sayiDonus()
         {
             return sayac;

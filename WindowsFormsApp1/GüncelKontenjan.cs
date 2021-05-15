@@ -15,7 +15,6 @@ namespace WindowsFormsApp1
     public partial class GüncelKontenjan : Form
     {
         double mevcutKontenjan;
-        int sayac;
         string durum = "d";
         public GüncelKontenjan()
         {
@@ -31,6 +30,12 @@ namespace WindowsFormsApp1
             serialPort3.PortName = "COM3";
             serialPort3.BaudRate = 9600;
             serialPort3.Open();
+
+          
+            serialPort1.PortName = "COM5";
+            serialPort1.BaudRate = 9600;
+            serialPort1.Open();
+
             timer1.Start();
         }
 
@@ -39,12 +44,17 @@ namespace WindowsFormsApp1
             try
             {
                 string sonuc = serialPort3.ReadExisting();
+                string sonuc2 = serialPort1.ReadExisting();
                 bilgi.Text = sonuc;
 
                 bool donus = Hesaplamalar.kontenjanDonus(sonuc, (int)mevcutKontenjan);
-
+                int kalanKontenjan = (int)(mevcutKontenjan - Hesaplamalar.sayac);
                 sayiGösterim.ForeColor = Color.White;
-                sayiGösterim.Text = ($"Kontenjan Durumu: {(int)mevcutKontenjan}\n Kalan Kontenjan: {(int)mevcutKontenjan- Hesaplamalar.sayac}");
+
+
+                bool cikisDonus= Hesaplamalar.cikiskontenjanDonus(sonuc2, kalanKontenjan);
+                sayiGösterim.Text = ($"Kontenjan Durumu: {(int)mevcutKontenjan}\n Kalan Kontenjan: {kalanKontenjan}");
+
                 if (durum=="a")
                 {
                     serialPort3.Write(durum);
@@ -60,8 +70,17 @@ namespace WindowsFormsApp1
                     label2.ForeColor = Color.Red;
                     label2.Text = "KONTENJAN DOLDU GİRİŞ YAPILAMAZ !";
 
+                }
+                if (cikisDonus==true)
+                {
+                    bilgi.Text = sonuc2;
+                    sayiGösterim.Text = ($"Kontenjan Durumu: {(int)mevcutKontenjan}\n Kalan Kontenjan: {kalanKontenjan++}");
+
+                    label2.Text = " ";
 
                 }
+                
+                
             }
             catch (Exception)
             {
